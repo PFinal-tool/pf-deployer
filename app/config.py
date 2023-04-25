@@ -5,10 +5,14 @@
 # @File    : config.py
 # @Software: PyCharm
 class Config:
+    """
+     配置
+    """
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    template_folder = 'app/templates'
-    static_folder = 'app/static'
+    SECRET_KEY = 'pfinal-deployper'
+    TEMPLATE_FOLDER = 'app/templates'
+    STATIC_FOLDER = 'app/static'
 
     @staticmethod
     def init_app(app):
@@ -25,7 +29,7 @@ class DevelopmentConfig(Config):
     """
         开发 musql
     """
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/bigdata'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/ops'
 
 
 # 测试环境
@@ -33,7 +37,7 @@ class TestingConfig(Config):
     """
         测试  musql
     """
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/bigdata'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/ops'
 
 
 # 生产环境
@@ -41,7 +45,7 @@ class ProductionConfig(Config):
     """
         生产mysql  库
     """
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/bigdata'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/ops'
 
 
 # 配置字典

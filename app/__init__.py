@@ -4,11 +4,13 @@
 # @Email   : lampxiezi@163.com
 # @File    : __init__.py
 # @Software: PyCharm
+
 from flask import Flask, render_template
 
 from app.config import config
-from app.extensions import config_extension
-from app.views import config_blieprint
+from app.extension import init_plugs
+from app.script import init_script
+from app.views import init_view
 
 
 # 创建一个初始化Flask项目的方法
@@ -18,16 +20,23 @@ def strat_app(config_name):
     :param config_name:
     :return:
     """
-    print(config_name)
     app = Flask(config_name,
-                template_folder=config[config_name].template_folder if config[config_name].template_folder else 'templates',
-                static_folder=config[config_name].static_folder if config[config_name].static_folder else 'static'
+                template_folder=config[config_name].TEMPLATE_FOLDER if config[config_name].TEMPLATE_FOLDER else 'templates',
+                static_folder=config[config_name].STATIC_FOLDER if config[config_name].STATIC_FOLDER else 'static'
                 )
     app.config.from_object(config[config_name] or config['default'])
     config[config_name].init_app(app)
-    config_extension(app)
-    config_blieprint(app)
     config_errorhandler(app)
+
+    # 注册插件
+    init_plugs(app)
+
+    # 注册路由
+    init_view(app)
+    # 注册命令
+
+    init_script(app)
+
     return app
 
 
