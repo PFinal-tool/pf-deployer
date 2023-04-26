@@ -45,7 +45,7 @@ class ProductionConfig(Config):
     """
         生产mysql  库
     """
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/ops'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234546@localhost:3306/ops'
 
 
 # 配置字典

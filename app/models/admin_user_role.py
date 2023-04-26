@@ -5,7 +5,7 @@
 # @File    : admin_user_role.py
 # @Software: PyCharm
 # 创建中间表
-from app.extension import db
+from app.extension.init_sqlalchemy import db
 
 user_role = db.Table(
     "admin_user_role",  # 中间表名称

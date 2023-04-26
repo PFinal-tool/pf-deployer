@@ -6,7 +6,7 @@
 # @Software: PyCharm
 import datetime
 
-from app.extension import db
+from app.extension.init_sqlalchemy import db
 
 
 class Role(db.Model):

@@ -5,9 +5,12 @@
 # @File    : __init__.py.py
 # @Software: PyCharm
 from flask import Blueprint, render_template, session, request
+from flask_login import login_user, current_user
 
 from app.common import admin as admin_plugin
-from app.common.utils.http import fail_api
+from app.common.aadmin_log import login_log
+from app.common.utils.http import fail_api, success_api
+from app.models import User
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -49,7 +52,30 @@ def login_post():
     if code != s_code:
         return fail_api(msg="验证码错误")
 
-   # user =
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        return fail_api(msg="不存在的用户")
+
+    if user.enable == 0:
+        return fail_api(msg="用户被暂停使用")
+    if username == user.username and user.validate_password(password):
+        # 登录
+        login_user(user)
+        # 记录登录日志
+        login_log(request, uid=user.id, is_access=True)
+        role = current_user.role
+        user_power = []
+        for i in role:
+            if i.enable == 0:
+                continue
+            for p in i.power:
+                if p.enable == 0:
+                    continue
+                user_power.append(p.code)
+        print('login')
+        return success_api(msg="登录成功")
+    login_log(request, uid=user.id, is_access=False)
+    return fail_api(msg="用户名或密码错误")
 
 
 @auth_bp.route('/getCaptcha')

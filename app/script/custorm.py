@@ -9,12 +9,14 @@ import os
 
 import click
 from flask.cli import AppGroup
+from flask_script import Manager
 
 from app.extension import db
 from app.models import User, Role, Power
 from app.script.newmodular.new import NewViewModular
 
-custorm_cli = AppGroup("admin")
+manager = Manager(usage="Perform admin operations")
+# admin_cli = AppGroup("admin")
 now_time = datetime.datetime.now()
 userdata = [
     User(
@@ -558,7 +560,7 @@ def add_role_power():
     db.session.commit()
 
 
-@custorm_cli.command("init")
+@manager.command
 def init_db():
     db.session.add_all(userdata)
     print("加载系统必须用户数据")
@@ -575,7 +577,7 @@ def init_db():
     print("数据初始化完成,请使用python app.py命令运行")
 
 
-@custorm_cli.command()
+@manager.command
 @click.option('--type', prompt="请输入类型", help='新增的类型')
 @click.option('--name', prompt="请输入新增的名称", help='新增的名称')
 def new(type, name):

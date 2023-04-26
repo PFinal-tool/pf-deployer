@@ -4,7 +4,7 @@
 # @Email   : lampxiezi@163.com
 # @File    : admin_role_power.py
 # @Software: PyCharm
-from app.extension import db
+from app.extension.init_sqlalchemy import db
 
 role_power = db.Table(
     "admin_role_power",  # 中间表名称

@@ -13,7 +13,7 @@
             <span class="bg1"></span>
             <span class="bg2"></span>
         </div>
-        <form class="layui-form login-bottom">
+        <form class="layui-form login-bottom" action="javascript:void(0);">
             <div class="center">
                 <div class="item">
                     <span class="icon icon-2"></span>
@@ -50,15 +50,11 @@
 <!-- 引入 layui.js -->
 {{ super() }}
 <script>
-    layui.use(['form', 'jquery', 'layer', 'button'], function () {
+    layui.use(['form', 'jquery', 'layer'], function () {
         let form = layui.form;
         let $ = layui.jquery;
         let layer = layui.layer;
-        let button = layui.button;
         let captchaPath = "{{ url_for('auth.get_captcha') }}";
-        // 登录过期的时候，跳出ifram框架
-        if (top.location !== self.location) top.location = self.location;
-
         $('.bind-password').on('click', function () {
             if ($(this).hasClass('icon-5')) {
                 $(this).removeClass('icon-5');
@@ -81,36 +77,37 @@
         form.on('submit(login)', function (data) {
             data = data.field;
             if (data.username === '') {
-                layer.msg('用户名不能为空');
+                layer.msg('用户名不能为空', {icon: 2});
                 return false;
             }
             if (data.password === '') {
-                layer.msg('密码不能为空');
+                layer.msg('密码不能为空', {icon: 2});
                 return false;
             }
             if (data.captcha === '') {
-                layer.msg('验证码不能为空');
+                layer.msg('验证码不能为空', {icon: 2});
                 return false;
             }
             let loader = layer.load();
-            let btn = button.load({elem: '.login'});
+            //let btn = button.load({elem: '.login'});
             $.ajax({
-                data: data.field,
+                data: data,
                 type: "post",
                 dataType: 'json',
                 success: function (result) {
                     layer.close(loader);
-                    btn.stop(function () {
-                        // if (result.success) {
-                        //     popup.success(result.msg, function () {
-                        //         location.href = "{{ url_for('main.index') }}";
-                        //     })
-                        // } else {
-                        //     popup.failure(result.msg, function () {
-                        //         document.getElementById("captchaImage").src = captchaPath + "?" + Math.random();
-                        //     });
-                        // }
-                    })
+                    console.log(result);
+                    // btn.stop(function () {
+                    if (result.code !== 200) {
+                        document.getElementById("refreshCaptcha").src = captchaPath + "?" + Math.random();
+                        layer.msg(result.msg, {icon: 2})
+                        // popup.success(result.msg, function () {
+                        //     location.href = "{{ url_for('main.index') }}";
+                        // })
+                    } else {
+                        layer.msg(result.msg, {icon: 1})
+                        // location.href = "{{ url_for('main.index') }}";
+                    }
                 }
             });
             return false;

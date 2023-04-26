@@ -6,8 +6,9 @@
 # @Software: PyCharm
 from flask import Flask
 from flask_migrate import Migrate
-
 from app.extension.init_sqlalchemy import db
+
+from app.models import *
 
 migrate = Migrate()
 

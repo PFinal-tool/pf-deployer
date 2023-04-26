@@ -4,10 +4,10 @@
 # @Email   : lampxiezi@163.com
 # @File    : __init__.py.py
 # @Software: PyCharm
-from flask import Flask
+from flask_script import Manager
 
-from .custorm import custorm_cli
+from .custorm import manager as admin_manager
 
 
-def init_script(app: Flask):
-    app.cli.add_command(custorm_cli)
+def init_script(manager: Manager):
+    manager.add_command('admin', admin_manager)

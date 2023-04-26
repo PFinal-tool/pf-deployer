@@ -16,6 +16,6 @@ def init_plugs(app: Flask) -> None:
 
     :param app:
     """
-    init_migrate(app)
     init_login_manager(app)
     init_databases(app)
+    init_migrate(app)
