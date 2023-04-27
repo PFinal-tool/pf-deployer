@@ -20,8 +20,3 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='lib/font-awesome-4.7.0/css/font-awesome.min.css') }}" media="all">
 {% endblock %}
 {% block body_attribs %} class="layui-layout-body layuimini-all" {% endblock body_attribs %}
-
-{% block scripts %}
-{{ super() }}
-<script src="{{ url_for('static', filename='js/lay-config.js?v=2.0.0') }}" charset="utf-8"></script>
-{%- endblock scripts %}

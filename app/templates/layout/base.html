@@ -26,12 +26,12 @@
 {% block content -%}
 {%- endblock content %}
 
+<script src="{{ url_for('static', filename='lib/layui-v2.6.3/layui.js' ) }}" charset="utf-8"></script>
+<script src="{{ url_for('static', filename='js/lay-config.js') }}" charset="utf-8"></script>
 {% block scripts %}
 <!-- 引入 layui.js -->
-<script src="{{ url_for('static', filename='lib/layui-v2.6.3/layui.js' ) }}" charset="utf-8"></script>
 {%- endblock scripts %}
 {%- endblock body %}
 </body>
 {%- endblock html %}
 </html>
-{% endblock doc -%}

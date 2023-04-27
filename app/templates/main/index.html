@@ -135,9 +135,23 @@
         });
 
         $('.login-out').on("click", function () {
-            layer.msg('退出登录成功', function () {
-                window.location = 'page/login-3.html';
-            });
+
+            let loading = layer.load()
+            $.ajax({
+                url: '/auth/logout',
+                dataType: 'json',
+                type: 'post',
+                success: function (result) {
+                    layer.close(loading)
+                    if (result.success) {
+                        location.href = '{{ url_for("main.index") }}'
+                        return true
+                    }
+                }
+            })
+            // layer.msg('退出登录成功', function () {
+            //     window.location = 'page/login-3.html';
+            // });
         });
     });
 </script>

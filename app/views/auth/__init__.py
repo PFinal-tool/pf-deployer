@@ -5,7 +5,7 @@
 # @File    : __init__.py.py
 # @Software: PyCharm
 from flask import Blueprint, render_template, session, request
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, login_required, logout_user
 
 from app.common import admin as admin_plugin
 from app.common.aadmin_log import login_log
@@ -88,3 +88,11 @@ def get_captcha():
     resp, code = admin_plugin.get_captcha()
     session["code"] = code
     return resp
+
+
+@auth_bp.route('/logout', methods=['POST'])
+@login_required
+def logout():
+    logout_user()
+    session.pop('permissions')
+    return success_api(msg="注销成功")
