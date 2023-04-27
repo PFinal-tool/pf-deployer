@@ -25,6 +25,6 @@ def init_login_manager(app):
         :param user_id:
         """
         pass
-        # from app.models import User
-        # user = User.query.get(int(user_id))
-        # return user
+        from app.models import User
+        user = User.query.get(int(user_id))
+        return user

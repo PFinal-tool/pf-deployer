@@ -1,4 +1,4 @@
-{% block doc -%}<!DOCTYPE html>
+<!DOCTYPE html>
 <html{% block html_attribs %}{% endblock html_attribs %}>
 {%- block html %}
 <head>
@@ -11,9 +11,12 @@
 
     {%- block styles %}
     <!-- 引入 layui.css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/layui.css' ) }}"  />
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/layui-v2.6.3/css/layui.css' ) }}"/>
     {%- endblock styles %}
+    <style id="layuimini-bg-color">
+    </style>
+</head>
+<head>
     {%- endblock head %}
 </head>
 <body{% block body_attribs %}{% endblock body_attribs %}>
@@ -25,7 +28,7 @@
 
 {% block scripts %}
 <!-- 引入 layui.js -->
-<script src="{{ url_for('static', filename='js/layui.js' ) }}"></script>
+<script src="{{ url_for('static', filename='lib/layui-v2.6.3/layui.js' ) }}" charset="utf-8"></script>
 {%- endblock scripts %}
 {%- endblock body %}
 </body>
