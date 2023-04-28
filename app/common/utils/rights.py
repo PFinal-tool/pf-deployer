@@ -6,7 +6,10 @@
 # @Software: PyCharm
 from functools import wraps
 
-from flask_login import login_required
+from flask import current_app, session, request, abort, jsonify
+from flask_login import login_required, current_user
+
+from app.common.admin_log import admin_log
 
 
 def authorize(power: str, log: bool = False):
@@ -20,19 +23,18 @@ def authorize(power: str, log: bool = False):
             :param kwargs:
             """
             # 定义管理员的id为1
-            pass
-            # if current_user.username == current_app.config.get("SUPERADMIN"):
-            #     return func(*args, **kwargs)
-            # if not power in session.get('permissions'):
-            #     if log:
-            #         admin_log(request=request, is_access=False)
-            #     if request.method == 'GET':
-            #         abort(403)
-            #     else:
-            #         return jsonify(success=False, msg="权限不足!")
-            # if log:
-            #     admin_log(request=request, is_access=True)
-            # return func(*args, **kwargs)
+            if current_user.username == current_app.config.get("SUPERADMIN"):
+                return func(*args, **kwargs)
+            if not power in session.get('permissions'):
+                if log:
+                    admin_log(request=request, is_access=False)
+                if request.method == 'GET':
+                    abort(403)
+                else:
+                    return jsonify(success=False, msg="权限不足!")
+            if log:
+                admin_log(request=request, is_access=True)
+            return func(*args, **kwargs)
 
         return wrapper
 

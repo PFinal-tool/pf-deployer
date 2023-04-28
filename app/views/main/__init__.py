@@ -7,6 +7,7 @@
 from flask import Flask
 
 from app.views.main.index import main_base
+from app.views.main.power import admin_power
 from app.views.main.rights import rights_bp
 
 
@@ -17,3 +18,4 @@ def register_main_views(app: Flask):
     """
     app.register_blueprint(main_base)
     app.register_blueprint(rights_bp)
+    app.register_blueprint(admin_power)

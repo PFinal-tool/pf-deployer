@@ -37,7 +37,6 @@ def configs():
 
 
 def menu():
-    print(current_user.username, current_app.config.get("SUPERADMIN"))
     if current_user.username != current_app.config.get("SUPERADMIN"):
         role = current_user.role
         powers = []

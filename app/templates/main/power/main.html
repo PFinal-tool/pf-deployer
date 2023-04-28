@@ -1,0 +1,46 @@
+{% extends 'layout/admin_base.html' %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/public.css') }}" media="all">
+{% endblock styles %}
+{% block content -%}
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">权限名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="powerName" placeholder="" class="layui-input">
+                </div>
+                <button class="layui-btn" lay-submit lay-filter="power-query">
+                    <i class="layui-icon layui-icon-search"></i>
+                    查询
+                </button>
+                <button type="reset" class="layui-btn  layui-btn-primary">
+                    <i class="layui-icon layui-icon-refresh"></i>
+                    重置
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="power-table" lay-filter="power-table"></table>
+    </div>
+</div>
+<script type="text/html" id="power-toolbar">
+    {% if authorize("admin:power:add") %}
+    <button class="layui-btn layui-btn-normal layui-btn-md" lay-event="add">
+        <i class="layui-icon layui-icon-add-1"></i>
+        新增
+    </button>
+    {% endif %}
+    {% if authorize("admin:role:remove") %}
+    <button class="pear-btn pear-btn-md" lay-event="batchRemove">
+        <i class="layui-icon layui-icon-delete"></i>
+        删除
+    </button>
+    {% endif %}
+</script>
+{%- endblock content %}

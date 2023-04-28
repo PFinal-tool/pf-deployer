@@ -8,7 +8,7 @@ from flask import Blueprint, render_template, session, request
 from flask_login import login_user, current_user, login_required, logout_user
 
 from app.common import admin as admin_plugin
-from app.common.aadmin_log import login_log
+from app.common.admin_log import login_log
 from app.common.utils.http import fail_api, success_api
 from app.models import User
 
@@ -68,6 +68,7 @@ def login_post():
 
         user_power = []
         for i in role:
+            print(i)
             if i.enable == 0:
                 continue
             for p in i.power:
