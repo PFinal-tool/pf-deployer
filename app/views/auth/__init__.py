@@ -65,7 +65,7 @@ def login_post():
         login_log(request, uid=user.id, is_access=True)
         # 授权路由存入session
         role = current_user.role
-        print(role)
+
         user_power = []
         for i in role:
             if i.enable == 0:
@@ -74,6 +74,7 @@ def login_post():
                 if p.enable == 0:
                     continue
                 user_power.append(p.code)
+        print(user_power)
         session['permissions'] = user_power
         return success_api(msg="登录成功")
     login_log(request, uid=user.id, is_access=False)

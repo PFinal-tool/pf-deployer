@@ -18,3 +18,10 @@ def index():
     """
     print(current_user)
     return render_template('main/index.html')
+
+
+@main_base.route('/dashboard')
+@login_required
+def dashboard():
+    print(current_user)
+    return render_template('main/dashboard.html')

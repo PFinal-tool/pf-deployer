@@ -15,8 +15,8 @@
 {% block styles %}
 {{ super() }}
 <link rel="icon" href="{{ url_for('static',filename='images/favicon.ico') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/layuimini.css?v=2.0.4.2') }}" media="all">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layuimini.css') }}" media="all">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/themes/default.css') }}" media="all">
 <link rel="stylesheet" href="{{ url_for('static', filename='lib/font-awesome-4.7.0/css/font-awesome.min.css') }}" media="all">
-{% endblock %}
+{% endblock styles %}
 {% block body_attribs %} class="layui-layout-body layuimini-all" {% endblock body_attribs %}

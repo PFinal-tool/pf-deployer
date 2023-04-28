@@ -13,6 +13,7 @@ class Config:
     SECRET_KEY = 'pfinal-deployper'
     TEMPLATE_FOLDER = 'app/templates'
     STATIC_FOLDER = 'app/static'
+    SYSTEM_NAME = 'PF-DEV'
 
     @staticmethod
     def init_app(app):
