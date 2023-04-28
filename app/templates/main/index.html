@@ -112,8 +112,8 @@
             miniTongji = layui.miniTongji;
 
         var options = {
-            iniUrl: "{{ url_for('rights.configs') }}",    // 初始化接口
-            clearUrl: "{{ url_for('static', filename='api/clear.json') }} ", // 缓存清理接口
+            iniUrl: "{{ url_for('rights.configs') }} ",    // 初始化接口
+            clearUrl: "api/clear.json", // 缓存清理接口
             urlHashLocation: true,      // 是否打开hash定位
             bgColorDefault: false,      // 主题默认配置
             multiModule: true,          // 是否开启多模块

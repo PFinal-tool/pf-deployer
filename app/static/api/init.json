@@ -1,245 +1,359 @@
 {
   "homeInfo": {
-    "title": "首页",
-    "href": "/static//static/page/welcome-1.html?t=1"
+    "href": "/dashboard",
+    "title": "\u9996\u9875"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
+    "href": "/",
     "image": "/static/images/logo.png",
-    "href": ""
+    "title": "PF-DEV"
   },
   "menuInfo": [
     {
-      "title": "常规管理",
-      "icon": "fa fa-address-book",
-      "href": "",
-      "target": "_self",
       "child": [
         {
-          "title": "主页模板",
-          "href": "",
-          "icon": "fa fa-home",
-          "target": "_self",
           "child": [
             {
-              "title": "主页一",
-              "href": "/static/page/welcome-1.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-add-circle",
+              "id": 22,
+              "parent_id": 3,
+              "sort": 1,
+              "title": "\u7528\u6237\u589e\u52a0"
             },
             {
-              "title": "主页二",
-              "href": "/static/page/welcome-2.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-rate",
+              "id": 23,
+              "parent_id": 3,
+              "sort": 2,
+              "title": "\u7528\u6237\u7f16\u8f91"
             },
             {
-              "title": "主页三",
-              "href": "/static/page/welcome-3.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 24,
+              "parent_id": 3,
+              "sort": 3,
+              "title": "\u7528\u6237\u5220\u9664"
             }
-          ]
+          ],
+          "enable": 1,
+          "href": "/admin/user/",
+          "icon": "layui-icon layui-icon layui-icon layui-icon layui-icon-rate",
+          "id": 3,
+          "parent_id": 1,
+          "sort": 1,
+          "title": "\u7528\u6237\u7ba1\u7406"
         },
         {
-          "title": "菜单管理",
-          "href": "/static/page/menu.html",
-          "icon": "fa fa-window-maximize",
-          "target": "_self"
-        },
-        {
-          "title": "系统设置",
-          "href": "/static/page/setting.html",
-          "icon": "fa fa-gears",
-          "target": "_self"
-        },
-        {
-          "title": "表格示例",
-          "href": "/static/page/table.html",
-          "icon": "fa fa-file-text",
-          "target": "_self"
-        },
-        {
-          "title": "表单示例",
-          "href": "",
-          "icon": "fa fa-calendar",
-          "target": "_self",
           "child": [
             {
-              "title": "普通表单",
-              "href": "/static/page/form.html",
-              "icon": "fa fa-list-alt",
-              "target": "_self"
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 27,
+              "parent_id": 9,
+              "sort": 1,
+              "title": "\u7528\u6237\u589e\u52a0"
             },
             {
-              "title": "分步表单",
-              "href": "/static/page/form-step.html",
-              "icon": "fa fa-navicon",
-              "target": "_self"
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 28,
+              "parent_id": 9,
+              "sort": 2,
+              "title": "\u89d2\u8272\u7f16\u8f91"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 29,
+              "parent_id": 9,
+              "sort": 3,
+              "title": "\u89d2\u8272\u5220\u9664"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 30,
+              "parent_id": 9,
+              "sort": 4,
+              "title": "\u89d2\u8272\u6388\u6743"
             }
-          ]
+          ],
+          "enable": 1,
+          "href": "/admin/role",
+          "icon": "layui-icon layui-icon-username",
+          "id": 9,
+          "parent_id": 1,
+          "sort": 2,
+          "title": "\u89d2\u8272\u7ba1\u7406"
         },
         {
-          "title": "登录模板",
-          "href": "",
-          "icon": "fa fa-flag-o",
-          "target": "_self",
           "child": [
             {
-              "title": "登录-1",
-              "href": "/static/page/login-1.html",
-              "icon": "fa fa-stumbleupon-circle",
-              "target": "_blank"
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-add-circle",
+              "id": 21,
+              "parent_id": 4,
+              "sort": 1,
+              "title": "\u6743\u9650\u589e\u52a0"
             },
             {
-              "title": "登录-2",
-              "href": "/static/page/login-2.html",
-              "icon": "fa fa-viacoin",
-              "target": "_blank"
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 25,
+              "parent_id": 4,
+              "sort": 2,
+              "title": "\u6743\u9650\u7f16\u8f91"
             },
             {
-              "title": "登录-3",
-              "href": "/static/page/login-3.html",
-              "icon": "fa fa-tags",
-              "target": "_blank"
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 26,
+              "parent_id": 4,
+              "sort": 3,
+              "title": "\u7528\u6237\u5220\u9664"
             }
-          ]
+          ],
+          "enable": 1,
+          "href": "/admin/power/",
+          "icon": null,
+          "id": 4,
+          "parent_id": 1,
+          "sort": 2,
+          "title": "\u6743\u9650\u7ba1\u7406"
         },
         {
-          "title": "异常页面",
-          "href": "",
-          "icon": "fa fa-home",
-          "target": "_self",
           "child": [
             {
-              "title": "404页面",
-              "href": "/static/page/404.html",
-              "icon": "fa fa-hourglass-end",
-              "target": "_self"
-            }
-          ]
-        },
-        {
-          "title": "其它界面",
-          "href": "",
-          "icon": "fa fa-snowflake-o",
-          "target": "",
-          "child": [
-            {
-              "title": "按钮示例",
-              "href": "/static/page/button.html",
-              "icon": "fa fa-snowflake-o",
-              "target": "_self"
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 49,
+              "parent_id": 48,
+              "sort": 1,
+              "title": "\u90e8\u95e8\u589e\u52a0"
             },
             {
-              "title": "弹出层",
-              "href": "/static/page/layer.html",
-              "icon": "fa fa-shield",
-              "target": "_self"
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 50,
+              "parent_id": 48,
+              "sort": 2,
+              "title": "\u90e8\u95e8\u7f16\u8f91"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 51,
+              "parent_id": 48,
+              "sort": 3,
+              "title": "\u90e8\u95e8\u5220\u9664"
             }
-          ]
+          ],
+          "enable": 1,
+          "href": "/dept",
+          "icon": "layui-icon layui-icon-group",
+          "id": 48,
+          "parent_id": 1,
+          "sort": 3,
+          "title": "\u90e8\u95e8\u7ba1\u7406"
+        },
+        {
+          "enable": 1,
+          "href": "/admin/log",
+          "icon": "layui-icon layui-icon-read",
+          "id": 13,
+          "parent_id": 1,
+          "sort": 4,
+          "title": "\u65e5\u5fd7\u7ba1\u7406"
+        },
+        {
+          "enable": 1,
+          "href": "/admin/monitor",
+          "icon": "layui-icon layui-icon-vercode",
+          "id": 12,
+          "parent_id": 1,
+          "sort": 5,
+          "title": "\u7cfb\u7edf\u76d1\u63a7"
+        },
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 45,
+              "parent_id": 44,
+              "sort": 1,
+              "title": "\u5b57\u5178\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 46,
+              "parent_id": 44,
+              "sort": 2,
+              "title": "\u5b57\u5178\u4fee\u6539"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 47,
+              "parent_id": 44,
+              "sort": 3,
+              "title": "\u5b57\u5178\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/dict",
+          "icon": "layui-icon layui-icon-console",
+          "id": 44,
+          "parent_id": 1,
+          "sort": 6,
+          "title": "\u6570\u636e\u5b57\u5178"
+        },
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-ok-circle",
+              "id": 58,
+              "parent_id": 57,
+              "sort": 1,
+              "title": "\u90ae\u4ef6\u53d1\u9001"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 59,
+              "parent_id": 57,
+              "sort": 2,
+              "title": "\u90ae\u4ef6\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/mail",
+          "icon": "layui-icon ",
+          "id": 57,
+          "parent_id": 1,
+          "sort": 7,
+          "title": "\u90ae\u4ef6\u7ba1\u7406"
         }
-      ]
+      ],
+      "enable": 1,
+      "href": null,
+      "icon": "layui-icon layui-icon-set-fill",
+      "id": 1,
+      "parent_id": 0,
+      "sort": 1,
+      "title": "\u7cfb\u7edf\u7ba1\u7406"
     },
     {
-      "title": "组件管理",
-      "icon": "fa fa-lemon-o",
-      "href": "",
-      "target": "_self",
       "child": [
         {
-          "title": "图标列表",
-          "href": "/static/page/icon.html",
-          "icon": "fa fa-dot-circle-o",
-          "target": "_self"
-        },
-        {
-          "title": "图标选择",
-          "href": "/static/page/icon-picker.html",
-          "icon": "fa fa-adn",
-          "target": "_self"
-        },
-        {
-          "title": "颜色选择",
-          "href": "/static/page/color-select.html",
-          "icon": "fa fa-dashboard",
-          "target": "_self"
-        },
-        {
-          "title": "下拉选择",
-          "href": "/static/page/table-select.html",
-          "icon": "fa fa-angle-double-down",
-          "target": "_self"
-        },
-        {
-          "title": "文件上传",
-          "href": "/static/page/upload.html",
-          "icon": "fa fa-arrow-up",
-          "target": "_self"
-        },
-        {
-          "title": "富文本编辑器",
-          "href": "/static/page/editor.html",
-          "icon": "fa fa-edit",
-          "target": "_self"
-        },
-        {
-          "title": "省市县区选择器",
-          "href": "/static/page/area.html",
-          "icon": "fa fa-rocket",
-          "target": "_self"
-        }
-      ]
-    },
-    {
-      "title": "其它管理",
-      "icon": "fa fa-slideshare",
-      "href": "",
-      "target": "_self",
-      "child": [
-        {
-          "title": "多级菜单",
-          "href": "",
-          "icon": "fa fa-meetup",
-          "target": "",
           "child": [
             {
-              "title": "按钮1",
-              "href": "/static/page/button.html?v=1",
-              "icon": "fa fa-calendar",
-              "target": "_self",
-              "child": [
-                {
-                  "title": "按钮2",
-                  "href": "/static/page/button.html?v=2",
-                  "icon": "fa fa-snowflake-o",
-                  "target": "_self",
-                  "child": [
-                    {
-                      "title": "按钮3",
-                      "href": "/static/page/button.html?v=3",
-                      "icon": "fa fa-snowflake-o",
-                      "target": "_self"
-                    },
-                    {
-                      "title": "表单4",
-                      "href": "/static/page/form.html?v=1",
-                      "icon": "fa fa-calendar",
-                      "target": "_self"
-                    }
-                  ]
-                }
-              ]
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 31,
+              "parent_id": 18,
+              "sort": 1,
+              "title": "\u56fe\u7247\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 32,
+              "parent_id": 18,
+              "sort": 2,
+              "title": "\u56fe\u7247\u5220\u9664"
             }
-          ]
-        },
-        {
-          "title": "失效菜单",
-          "href": "/static/page/error.html",
-          "icon": "fa fa-superpowers",
-          "target": "_self"
+          ],
+          "enable": 1,
+          "href": "/admin/file",
+          "icon": "layui-icon layui-icon-camera",
+          "id": 18,
+          "parent_id": 17,
+          "sort": 5,
+          "title": "\u56fe\u7247\u4e0a\u4f20"
         }
-      ]
+      ],
+      "enable": 1,
+      "href": "",
+      "icon": "layui-icon layui-icon-camera",
+      "id": 17,
+      "parent_id": 0,
+      "sort": 2,
+      "title": "\u6587\u4ef6\u7ba1\u7406"
+    },
+    {
+      "child": [
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon ",
+              "id": 54,
+              "parent_id": 53,
+              "sort": 1,
+              "title": "\u4efb\u52a1\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon ",
+              "id": 55,
+              "parent_id": 53,
+              "sort": 2,
+              "title": "\u4efb\u52a1\u4fee\u6539"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon ",
+              "id": 56,
+              "parent_id": 53,
+              "sort": 23,
+              "title": "\u4efb\u52a1\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/task",
+          "icon": "layui-icon ",
+          "id": 53,
+          "parent_id": 52,
+          "sort": 1,
+          "title": "\u4efb\u52a1\u7ba1\u7406"
+        }
+      ],
+      "enable": 1,
+      "href": "",
+      "icon": "layui-icon layui-icon-log",
+      "id": 52,
+      "parent_id": 0,
+      "sort": 3,
+      "title": "\u5b9a\u65f6\u4efb\u52a1"
     }
   ]
 }

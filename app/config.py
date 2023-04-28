@@ -31,6 +31,7 @@ class DevelopmentConfig(Config):
         开发 musql
     """
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/ops'
+    SUPERADMIN = 'admin'
 
 
 # 测试环境
