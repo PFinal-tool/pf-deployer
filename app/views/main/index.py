@@ -16,7 +16,6 @@ def index():
     """
     :return:
     """
-    print(current_user)
     return render_template('main/index.html')
 
 

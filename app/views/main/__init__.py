@@ -12,6 +12,7 @@ from app.views.main.rights import rights_bp
 
 
 def register_main_views(app: Flask):
+
     """
 
     :param app:

@@ -43,4 +43,86 @@
     </button>
     {% endif %}
 </script>
+<script type="text/html" id="power-bar">
+    {% if authorize("admin:role:edit") %}
+    <button class="pear-btn pear-btn-primary pear-btn-sm" lay-event="edit"><i
+            class="layui-icon layui-icon-edit"></i>
+    </button>
+    {% endif %}
+    {% if authorize("admin:role:remove") %}
+    <button class="pear-btn pear-btn-danger pear-btn-sm" lay-event="remove"><i
+            class="layui-icon layui-icon-delete"></i>
+    </button>
+    {% endif %}
+</script>
+<script type="text/html" id="power-type">
+    {{ "
+    {{#if (d.powerType == '0') { }}
+    <span>目录</span>
+    {{# }else if(d.powerType == '1'){ }}
+    <span>菜单</span>
+    {{# }else if(d.powerType == '2'){ }}
+    <span>按钮</span>
+    {{# } }}
+
+    " |safe }}
+
+</script>
+
+<script type="text/html" id="power-enable">
+    <input type="checkbox" name="enable" value="{{ " {{d.powerId}}" }}" lay-skin="switch" lay-text="启用|禁用"
+    lay-filter="power-enable"  {{ "{{# if(d.enable==1){ }} checked {{# } }}" }}>
+</script>
+
+<script type="text/html" id="icon">
+    <i class="layui-icon {{ " {{d.icon}}" }}"></i>
+</script>
 {%- endblock content %}
+{% block scripts %}
+{{ super() }}
+<script>
+    layui.use(['table', 'form', 'jquery', 'treetable'], function () {
+        let table = layui.table
+        let form = layui.form
+        let $ = layui.jquery
+        let treetable = layui.treetable
+        let MODULE_PATH = '/admin/power/'
+        window.render = function () {
+              treetable.render({
+                treeColIndex: 1,
+                treeSpid: 0,
+                treeIdName: 'powerId',
+                treePidName: 'parentId',
+                skin: 'line',
+                treeDefaultClose: true,
+                toolbar: '#power-toolbar',
+                elem: '#power-table',
+                url: '/admin/power/data',
+                page: false,
+                cols: [
+                  [
+                    {% if authorize("admin:role:remove") %}
+                      { type: 'checkbox' },
+                    {% endif %}
+                    { field: 'powerName', minWidth: 200, title: '权限名称' },
+                    { field: 'icon', title: '图标', templet: '#icon' },
+                    { field: 'powerType', title: '权限类型', templet: '#power-type' },
+                    { field: 'enable', title: '是否可用', templet: '#power-enable' },
+                    { field: 'sort', title: '排序' },
+                    { title: '操作', templet: '#power-bar', width: 150, align: 'center' }
+                  ]
+                ]
+              })
+            }
+        render()
+        table.on('toolbar(power-table)', function (obj) {
+              if (obj.event === 'add') {
+                window.add()
+              } else if (obj.event === 'refresh') {
+                window.refresh()
+              }
+            })
+    })
+
+</script>
+{% endblock scripts %}
