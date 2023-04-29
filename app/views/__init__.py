@@ -1,21 +1,19 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2023/4/23 19:16
-# @Author  : PFinal南丞
-# @Email   : lampxiezi@163.com
-# @File    : __init__.py
-# @Software: PyCharm
-from .main import main
-
-BLUEPRINT = (
-    (main, ''),
-)
+from app.common.utils.rights import authorize
+from app.views.auth import register_auth_views
+from app.views.main import register_main_views
 
 
-# 创建一个初始化的蓝图的方法
-def config_blieprint(app):
+def init_view(app):
+    @app.context_processor
+    def inject_authorize():
+        """
+            注册一个检测权限的函数
+        :return:
+        """
+        return dict(authorize=authorize)
+
     """
-
     :param app:
     """
-    for blueprint, prefix in BLUEPRINT:
-        app.register_blueprint(blueprint, url_prefix=prefix)
+    register_main_views(app)
+    register_auth_views(app)

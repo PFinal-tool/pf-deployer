@@ -1,0 +1,359 @@
+{
+  "homeInfo": {
+    "href": "/dashboard",
+    "title": "\u9996\u9875"
+  },
+  "logoInfo": {
+    "href": "/",
+    "image": "/static/images/logo.png",
+    "title": "PF-DEV"
+  },
+  "menuInfo": [
+    {
+      "child": [
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-add-circle",
+              "id": 22,
+              "parent_id": 3,
+              "sort": 1,
+              "title": "\u7528\u6237\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-rate",
+              "id": 23,
+              "parent_id": 3,
+              "sort": 2,
+              "title": "\u7528\u6237\u7f16\u8f91"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 24,
+              "parent_id": 3,
+              "sort": 3,
+              "title": "\u7528\u6237\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/user/",
+          "icon": "layui-icon layui-icon layui-icon layui-icon layui-icon-rate",
+          "id": 3,
+          "parent_id": 1,
+          "sort": 1,
+          "title": "\u7528\u6237\u7ba1\u7406"
+        },
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 27,
+              "parent_id": 9,
+              "sort": 1,
+              "title": "\u7528\u6237\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 28,
+              "parent_id": 9,
+              "sort": 2,
+              "title": "\u89d2\u8272\u7f16\u8f91"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 29,
+              "parent_id": 9,
+              "sort": 3,
+              "title": "\u89d2\u8272\u5220\u9664"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 30,
+              "parent_id": 9,
+              "sort": 4,
+              "title": "\u89d2\u8272\u6388\u6743"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/role",
+          "icon": "layui-icon layui-icon-username",
+          "id": 9,
+          "parent_id": 1,
+          "sort": 2,
+          "title": "\u89d2\u8272\u7ba1\u7406"
+        },
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-add-circle",
+              "id": 21,
+              "parent_id": 4,
+              "sort": 1,
+              "title": "\u6743\u9650\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 25,
+              "parent_id": 4,
+              "sort": 2,
+              "title": "\u6743\u9650\u7f16\u8f91"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 26,
+              "parent_id": 4,
+              "sort": 3,
+              "title": "\u7528\u6237\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/power/",
+          "icon": null,
+          "id": 4,
+          "parent_id": 1,
+          "sort": 2,
+          "title": "\u6743\u9650\u7ba1\u7406"
+        },
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 49,
+              "parent_id": 48,
+              "sort": 1,
+              "title": "\u90e8\u95e8\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 50,
+              "parent_id": 48,
+              "sort": 2,
+              "title": "\u90e8\u95e8\u7f16\u8f91"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 51,
+              "parent_id": 48,
+              "sort": 3,
+              "title": "\u90e8\u95e8\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/dept",
+          "icon": "layui-icon layui-icon-group",
+          "id": 48,
+          "parent_id": 1,
+          "sort": 3,
+          "title": "\u90e8\u95e8\u7ba1\u7406"
+        },
+        {
+          "enable": 1,
+          "href": "/admin/log",
+          "icon": "layui-icon layui-icon-read",
+          "id": 13,
+          "parent_id": 1,
+          "sort": 4,
+          "title": "\u65e5\u5fd7\u7ba1\u7406"
+        },
+        {
+          "enable": 1,
+          "href": "/admin/monitor",
+          "icon": "layui-icon layui-icon-vercode",
+          "id": 12,
+          "parent_id": 1,
+          "sort": 5,
+          "title": "\u7cfb\u7edf\u76d1\u63a7"
+        },
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 45,
+              "parent_id": 44,
+              "sort": 1,
+              "title": "\u5b57\u5178\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 46,
+              "parent_id": 44,
+              "sort": 2,
+              "title": "\u5b57\u5178\u4fee\u6539"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 47,
+              "parent_id": 44,
+              "sort": 3,
+              "title": "\u5b57\u5178\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/dict",
+          "icon": "layui-icon layui-icon-console",
+          "id": 44,
+          "parent_id": 1,
+          "sort": 6,
+          "title": "\u6570\u636e\u5b57\u5178"
+        },
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon layui-icon-ok-circle",
+              "id": 58,
+              "parent_id": 57,
+              "sort": 1,
+              "title": "\u90ae\u4ef6\u53d1\u9001"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 59,
+              "parent_id": 57,
+              "sort": 2,
+              "title": "\u90ae\u4ef6\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/mail",
+          "icon": "layui-icon ",
+          "id": 57,
+          "parent_id": 1,
+          "sort": 7,
+          "title": "\u90ae\u4ef6\u7ba1\u7406"
+        }
+      ],
+      "enable": 1,
+      "href": null,
+      "icon": "layui-icon layui-icon-set-fill",
+      "id": 1,
+      "parent_id": 0,
+      "sort": 1,
+      "title": "\u7cfb\u7edf\u7ba1\u7406"
+    },
+    {
+      "child": [
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 31,
+              "parent_id": 18,
+              "sort": 1,
+              "title": "\u56fe\u7247\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "",
+              "id": 32,
+              "parent_id": 18,
+              "sort": 2,
+              "title": "\u56fe\u7247\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/file",
+          "icon": "layui-icon layui-icon-camera",
+          "id": 18,
+          "parent_id": 17,
+          "sort": 5,
+          "title": "\u56fe\u7247\u4e0a\u4f20"
+        }
+      ],
+      "enable": 1,
+      "href": "",
+      "icon": "layui-icon layui-icon-camera",
+      "id": 17,
+      "parent_id": 0,
+      "sort": 2,
+      "title": "\u6587\u4ef6\u7ba1\u7406"
+    },
+    {
+      "child": [
+        {
+          "child": [
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon ",
+              "id": 54,
+              "parent_id": 53,
+              "sort": 1,
+              "title": "\u4efb\u52a1\u589e\u52a0"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon ",
+              "id": 55,
+              "parent_id": 53,
+              "sort": 2,
+              "title": "\u4efb\u52a1\u4fee\u6539"
+            },
+            {
+              "enable": 1,
+              "href": "",
+              "icon": "layui-icon ",
+              "id": 56,
+              "parent_id": 53,
+              "sort": 23,
+              "title": "\u4efb\u52a1\u5220\u9664"
+            }
+          ],
+          "enable": 1,
+          "href": "/admin/task",
+          "icon": "layui-icon ",
+          "id": 53,
+          "parent_id": 52,
+          "sort": 1,
+          "title": "\u4efb\u52a1\u7ba1\u7406"
+        }
+      ],
+      "enable": 1,
+      "href": "",
+      "icon": "layui-icon layui-icon-log",
+      "id": 52,
+      "parent_id": 0,
+      "sort": 3,
+      "title": "\u5b9a\u65f6\u4efb\u52a1"
+    }
+  ]
+}
