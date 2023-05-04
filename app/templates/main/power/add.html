@@ -86,9 +86,10 @@
 {% block scripts %}
 {{ super() }}
 <script>
-    layui.use(['form', 'jquery', 'dtree'], function () {
+    layui.use(['form', 'jquery', 'iconPicker', 'dtree'], function () {
         let form = layui.form
         let $ = layui.jquery
+        let icon = layui.iconPicker
         let dtree = layui.dtree
         dtree.renderSelect({
             elem: '#selectParent',
@@ -99,6 +100,17 @@
             dataFormat: 'list',
             response: {treeId: 'powerId', parentId: 'parentId', title: 'powerName'},  //修改response中返回数据的定义
             selectInitVal: '0'
+        })
+        icon.render({
+            elem: '#icon',
+            style: 'color: #5FB878;',
+            placeholder: '',
+            isSplit: true,
+            page: false,
+            search: false,
+            click: function (data) {
+                console.log(data)
+            }
         })
     })
 </script>
