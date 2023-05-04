@@ -28,3 +28,9 @@ def data():
         "data": curd.model_to_dicts(schema=PowerOutViewSchema, data=power)
     }
     return jsonify(res)
+
+
+@admin_power.route('/add')
+@authorize("admin:power:add", log=True)
+def add():
+    return render_template('main/power/add.html')
