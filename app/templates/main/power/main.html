@@ -37,7 +37,7 @@
     </button>
     {% endif %}
     {% if authorize("admin:role:remove") %}
-    <button class="pear-btn pear-btn-md" lay-event="batchRemove">
+    <button class="layui-btn layui-btn-danger" lay-event="batchRemove">
         <i class="layui-icon layui-icon-delete"></i>
         删除
     </button>
@@ -50,7 +50,7 @@
     </button>
     {% endif %}
     {% if authorize("admin:role:remove") %}
-    <button class="pear-btn pear-btn-danger pear-btn-sm" lay-event="remove"><i
+    <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="remove"><i
             class="layui-icon layui-icon-delete"></i>
     </button>
     {% endif %}
@@ -83,8 +83,6 @@
 <script>
     layui.use(['table', 'form', 'jquery', 'treetable'], function () {
         let table = layui.table
-        let form = layui.form
-        let $ = layui.jquery
         let treetable = layui.treetable
         let MODULE_PATH = '/admin/power/'
         window.render = function () {
@@ -112,6 +110,15 @@
                     { title: '操作', templet: '#power-bar', width: 150, align: 'center' }
                   ]
                 ]
+              })
+            }
+        window.add = function () {
+              layer.open({
+                type: 2,
+                title: '新增',
+                shade: 0.1,
+                area: ['800px', '500px'],
+                content: MODULE_PATH + 'add'
               })
             }
         render()
