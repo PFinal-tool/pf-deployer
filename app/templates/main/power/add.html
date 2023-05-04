@@ -86,10 +86,10 @@
 {% block scripts %}
 {{ super() }}
 <script>
-    layui.use(['form', 'jquery', 'tree'], function () {
+    layui.use(['form', 'jquery', 'dtree'], function () {
         let form = layui.form
         let $ = layui.jquery
-        let dtree = layui.tree
+        let dtree = layui.dtree
         dtree.renderSelect({
             elem: '#selectParent',
             url: '/admin/power/selectParent',

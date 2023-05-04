@@ -34,3 +34,17 @@ def data():
 @authorize("admin:power:add", log=True)
 def add():
     return render_template('main/power/add.html')
+
+
+@admin_power.route('/selectParent')
+@authorize("admin:power:main", log=True)
+def select_parent():
+    power = Power.query.all()
+    res = curd.model_to_dicts(schema=PowerOutViewSchema, data=power)
+    res.append({"powerId": 0, "powerName": "顶级权限", "parentId": -1})
+    res = {
+        "status": {"code": 200, "message": "默认"},
+        "data": res
+
+    }
+    return jsonify(res)
