@@ -1,0 +1,73 @@
+{% extends 'layout/admin_base.html' %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/public.css') }}" media="all">
+{% endblock styles %}
+{% block content -%}
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色名</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="roleName" placeholder="" class="layui-input">
+                </div>
+                <label class="layui-form-label">角色标识</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="roleCode" placeholder="" class="layui-input">
+                </div>
+                <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="role-query">
+                    <i class="layui-icon layui-icon-search"></i>
+                    查询
+                </button>
+                <button type="reset" class="pear-btn pear-btn-md">
+                    <i class="layui-icon layui-icon-refresh"></i>
+                    重置
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="layui-card">
+    <div class="layui-card-body">
+        <table id="role-table" lay-filter="role-table"></table>
+    </div>
+</div>
+{%- endblock content %}
+{% block scripts %}
+{{ super() }}
+<script>
+    layui.use(['table', 'form', 'jquery'], function () {
+        let table = layui.table
+        let form = layui.form
+        let $ = layui.jquery
+        let MODULE_PATH = '/admin/role/'
+        let cols = [
+          [
+            {% if authorize("admin:role:remove") %}
+              { type: 'checkbox' },
+            {% endif %}
+            { title: '角色名', field: 'roleName', align: 'center', width: 100 },
+            { title: 'Key值', field: 'roleCode', align: 'center' },
+            { title: '描述', field: 'details', align: 'center' },
+            { title: '是否可用', field: 'enable', align: 'center', templet: '#role-enable' },
+            { title: '排序', field: 'sort', align: 'center' },
+            { title: '操作', toolbar: '#role-bar', align: 'center', width: 195 }
+          ]
+        ]
+        table.render({
+              elem: '#role-table',
+              url: MODULE_PATH + 'data',
+              page: true,
+              cols: cols,
+              skin: 'line',
+              toolbar: '#role-toolbar',
+              defaultToolbar: [{
+                layEvent: 'refresh',
+                icon: 'layui-icon-refresh',
+              }, 'filter', 'print', 'exports']
+        })
+
+    })
+</script>
+{% endblock scripts %}

@@ -8,7 +8,8 @@ import datetime
 
 from flask import Flask, request
 from flask_marshmallow import Marshmallow
-from flask_sqlalchemy import SQLAlchemy, BaseQuery
+from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy.query import Query
 from marshmallow import fields
 from marshmallow.validate import (
     URL, Email, Range, Length, Equal, Regexp,
@@ -54,7 +55,7 @@ fields.Boolean.default_error_messages = {
 }
 
 
-class Query(BaseQuery):
+class CustomQuery(Query):
     def soft_delete(self):
         return self.update({"delete_at": datetime.datetime.now()})
 
@@ -90,7 +91,7 @@ class Query(BaseQuery):
         return [dict(i) for i in _res.items], _res.total
 
 
-db = SQLAlchemy()
+db = SQLAlchemy(query_class=CustomQuery)
 ma = Marshmallow()
 
 

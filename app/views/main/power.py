@@ -9,10 +9,11 @@ from flask import Blueprint, render_template, request, jsonify
 from app.common import curd
 from app.common.utils.http import fail_api, success_api
 from app.common.utils.rights import authorize
+from app.common.utils.validate import str_escape
 from app.extension import db
 from app.models import Power
 from app.schemas.admin_power import PowerOutViewSchema
-from app.common.utils.validate import str_escape
+
 admin_power = Blueprint('admin_power', __name__, url_prefix='/admin/power')
 
 
@@ -85,6 +86,7 @@ def edit(_id):
 @authorize("admin:power:edit", log=True)
 def update():
     req_json = request.get_json(force=True)
+    print(req_json)
     power_id = request.get_json(force=True).get("powerId")
     power_data = {
         "icon": str_escape(req_json.get("icon")),
@@ -96,6 +98,7 @@ def update():
         "url": str_escape(req_json.get("powerUrl")),
         "sort": str_escape(req_json.get("sort"))
     }
+    print(power_data)
     res = Power.query.filter_by(id=power_id).update(power_data)
     db.session.commit()
     if not res:

@@ -22,5 +22,9 @@ def index():
 @main_base.route('/dashboard')
 @login_required
 def dashboard():
+    """
+
+    :return:
+    """
     print(current_user)
     return render_template('main/dashboard.html')

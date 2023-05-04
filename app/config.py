@@ -14,6 +14,7 @@ class Config:
     TEMPLATE_FOLDER = 'app/templates'
     STATIC_FOLDER = 'app/static'
     SYSTEM_NAME = 'PF-DEV'
+    SQLALCHEMY_ECHO = True
 
     @staticmethod
     def init_app(app):
