@@ -16,11 +16,11 @@
                 <div class="layui-input-inline">
                     <input type="text" name="roleCode" placeholder="" class="layui-input">
                 </div>
-                <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit lay-filter="role-query">
+                <button class="layui-btn" lay-submit lay-filter="role-query">
                     <i class="layui-icon layui-icon-search"></i>
                     查询
                 </button>
-                <button type="reset" class="pear-btn pear-btn-md">
+                <button type="reset" class="layui-btn layui-btn-normal">
                     <i class="layui-icon layui-icon-refresh"></i>
                     重置
                 </button>
@@ -33,6 +33,23 @@
         <table id="role-table" lay-filter="role-table"></table>
     </div>
 </div>
+<script type="text/html" id="role-bar">
+    {% if authorize("admin:role:edit") %}
+        <button class="layui-btn  layui-btn-sm" lay-event="edit"><i
+                class="layui-icon layui-icon-edit"></i>
+        </button>
+    {% endif %}
+    {% if authorize("admin:role:power") %}
+        <button class="layui-btn layui-btn-warm layui-btn-sm" lay-event="power"><i
+                class="layui-icon layui-icon-vercode"></i>
+        </button>
+    {% endif %}
+    {% if authorize("admin:role:remove") %}
+        <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="remove"><i
+                class="layui-icon layui-icon-delete"></i>
+        </button>
+    {% endif %}
+</script>
 {%- endblock content %}
 {% block scripts %}
 {{ super() }}
@@ -67,7 +84,19 @@
                 icon: 'layui-icon-refresh',
               }, 'filter', 'print', 'exports']
         })
-
+        form.on('submit(role-query)', function (data) {
+          table.reload('role-table', { where: data.field })
+          return false
+        })
+        table.on('toolbar(role-table)', function (obj) {
+              if (obj.event === 'add') {
+                window.add()
+              } else if (obj.event === 'refresh') {
+                window.refresh()
+              } else if (obj.event === 'batchRemove') {
+                window.batchRemove(obj)
+              }
+         })
     })
 </script>
 {% endblock scripts %}
