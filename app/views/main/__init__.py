@@ -8,6 +8,7 @@ from flask import Flask
 
 from app.views.main.admin_log import admin_log
 from app.views.main.index import main_base
+from app.views.main.monitor import admin_monitor
 from app.views.main.power import admin_power
 from app.views.main.rights import rights_bp
 from app.views.main.role import admin_role
@@ -24,3 +25,4 @@ def register_main_views(app: Flask):
     app.register_blueprint(admin_power)
     app.register_blueprint(admin_role)
     app.register_blueprint(admin_log)
+    app.register_blueprint(admin_monitor)
