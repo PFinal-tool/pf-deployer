@@ -68,8 +68,9 @@
 {% block scripts %}
 {{ super() }}
 <script>
-    layui.use(['table', 'form', 'jquery'], function () {
+    layui.use(['table', 'form', 'jquery','layer'], function () {
         let table = layui.table
+        let layer = layui.layer
         let form = layui.form
         let $ = layui.jquery
         let MODULE_PATH = '/admin/role/'
@@ -90,6 +91,15 @@
         window.refresh = function () {
           table.reload('role-table')
         }
+         window.add = function () {
+              layer.open({
+                type: 2,
+                title: '新增',
+                shade: 0.1,
+                area: ['50%', '500px'],
+                content: MODULE_PATH + 'add'
+              })
+            }
         table.render({
               elem: '#role-table',
               url: MODULE_PATH + 'data',
@@ -113,6 +123,24 @@
                 window.refresh()
               } else if (obj.event === 'batchRemove') {
                 window.batchRemove(obj)
+              }
+        })
+        window.edit = function (obj) {
+          layer.open({
+            type: 2,
+            title: '修改',
+            shade: 0.1,
+            area: ['50%', '500px'],
+            content: MODULE_PATH + 'edit/' + obj.data['id']
+          })
+        }
+        table.on('tool(role-table)', function (obj) {
+              if (obj.event === 'remove') {
+                window.remove(obj)
+              } else if (obj.event === 'edit') {
+                window.edit(obj)
+              } else if (obj.event === 'power') {
+                window.power(obj)
               }
         })
     })
