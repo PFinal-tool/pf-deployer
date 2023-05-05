@@ -9,6 +9,7 @@ from flask import Flask
 from app.extension.init_login import init_login_manager
 from app.extension.init_migrate import init_migrate
 from .init_sqlalchemy import db, ma, init_databases
+from .init_template_directives import init_template_directives
 
 
 def init_plugs(app: Flask) -> None:
@@ -19,3 +20,4 @@ def init_plugs(app: Flask) -> None:
     init_login_manager(app)
     init_databases(app)
     init_migrate(app)
+    init_template_directives(app)

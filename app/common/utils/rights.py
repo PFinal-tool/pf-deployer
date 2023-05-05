@@ -25,6 +25,7 @@ def authorize(power: str, log: bool = False):
             # 定义管理员的id为1
             if current_user.username == current_app.config.get("SUPERADMIN"):
                 return func(*args, **kwargs)
+            print(session.get('permissions'))
             if not power in session.get('permissions'):
                 if log:
                     admin_log(request=request, is_access=False)

@@ -134,6 +134,37 @@
             content: MODULE_PATH + 'edit/' + obj.data['id']
           })
         }
+        window.remove = function (obj) {
+              layer.confirm('确定要删除该角色', { icon: 3, title: '提示' }, function (index) {
+                layer.close(index)
+                let loading = layer.load()
+                $.ajax({
+                  url: MODULE_PATH + 'remove/' + obj.data['id'],
+                  dataType: 'json',
+                  type: 'delete',
+                  success: function (result) {
+                    layer.close(loading)
+                    if (result.success) {
+                      layer.msg(result.msg, { icon: 1, time: 1000 }, function () {
+                        obj.del()
+                      })
+                    } else {
+                      layer.msg(result.msg, { icon: 2, time: 1000 })
+                    }
+                  }
+                })
+              })
+            }
+
+        window.power = function (obj) {
+              layer.open({
+                type: 2,
+                title: '授权',
+                shade: 0.1,
+                area: ['50%', '500px'],
+                content: MODULE_PATH + 'power/' + obj.data['id']
+              })
+        }
         table.on('tool(role-table)', function (obj) {
               if (obj.event === 'remove') {
                 window.remove(obj)
