@@ -6,7 +6,7 @@
 # @Software: PyCharm
 from flask import Blueprint, render_template, request, jsonify
 
-from app.common.curd import model_to_dicts, get_one_by_id
+from app.common.curd import model_to_dicts, get_one_by_id, enable_status, disable_status
 from app.common.utils.http import table_api, success_api, fail_api
 from app.common.utils.rights import authorize
 from app.common.utils.validate import str_escape
@@ -84,6 +84,10 @@ def edit_role(_id):
 @admin_role.route('/update', methods=['PUT'])
 @authorize("admin:role:edit", log=True)
 def role_update():
+    """
+
+    :return:
+    """
     req_json = request.get_json(force=True)
     id = req_json.get("roleId")
     print(req_json)
@@ -163,3 +167,28 @@ def save_role_power():
 
     db.session.commit()
     return success_api(msg="授权成功")
+
+
+@admin_role.route('/enable', methods=['PUT'])
+@authorize("admin:role:edit", log=True)
+def enable():
+    id = request.get_json(force=True).get('roleId')
+    if id:
+        res = enable_status(Role, id)
+        if not res:
+            return fail_api(msg="出错啦")
+        return success_api(msg="启动成功")
+    return fail_api(msg="数据错误")
+
+
+@admin_role.route('/disable', methods=['PUT'])
+@authorize("admin:role:edit", log=True)
+def disable():
+    """Disable"""
+    _id = request.get_json(force=True).get('roleId')
+    if _id:
+        res = disable_status(Role, _id)
+        if not res:
+            return fail_api(msg="出错啦")
+        return success_api(msg="禁用成功")
+    return fail_api(msg="数据错误")

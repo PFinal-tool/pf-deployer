@@ -64,6 +64,9 @@
         </button>
     {% endif %}
 </script>
+<script type="text/html" id="role-enable">
+    <input type="checkbox" name="enable" value='{{ "{{d.id}}" }}' lay-skin="switch" lay-text="启用|禁用" lay-filter="role-enable" {{ "{{# if(d.enable==1){ }} checked {{# } }}" }}>
+</script>
 {%- endblock content %}
 {% block scripts %}
 {{ super() }}
@@ -155,7 +158,6 @@
                 })
               })
             }
-
         window.power = function (obj) {
               layer.open({
                 type: 2,
@@ -174,6 +176,32 @@
                 window.power(obj)
               }
         })
+
+        form.on('switch(role-enable)', function (obj) {
+              let operate
+              if (obj.elem.checked) {
+                operate = 'enable'
+              } else {
+                operate = 'disable'
+              }
+              let loading = layer.load()
+              $.ajax({
+                url: '/admin/role/' + operate,
+                data: JSON.stringify({ roleId: this.value }),
+                dataType: 'json',
+                contentType: 'application/json',
+                type: 'put',
+                success: function (result) {
+                  layer.close(loading)
+                  if (result.success) {
+                    layer.msg(result.msg, { icon: 1, time: 1000 })
+                  } else {
+                    layer.msg(result.msg, { icon: 2, time: 1000 })
+                  }
+                }
+              })
+        })
+
     })
 </script>
 {% endblock scripts %}

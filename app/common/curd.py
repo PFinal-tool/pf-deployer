@@ -26,3 +26,24 @@ def get_one_by_id(model: db.Model, id):
     :return: 返回单个查询结果
     """
     return model.query.filter_by(id=id).first()
+
+
+def enable_status(model: db.Model, _id):
+    """修改状态"""
+    enable = 1
+    role = model.query.filter_by(id=_id).update({"enable": enable})
+    if role:
+        db.session.commit()
+        return True
+    return False
+
+
+# 停用状态
+def disable_status(model: db.Model, _id):
+    """修改状态"""
+    enable = 0
+    role = model.query.filter_by(id=_id).update({"enable": enable})
+    if role:
+        db.session.commit()
+        return True
+    return False
