@@ -1,0 +1,10 @@
+{% extends 'layout/admin_base.html' %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/public.css') }}" media="all">
+{% endblock styles %}
+{% block content -%}
+{%- endblock content %}
+{% block scripts %}
+{{ super() }}
+{% endblock scripts %}
