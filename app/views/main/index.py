@@ -7,7 +7,7 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 
-main_base = Blueprint('main', __name__, url_prefix='/admin')
+main_base = Blueprint('main', __name__, url_prefix='/')
 
 
 @main_base.route('/')

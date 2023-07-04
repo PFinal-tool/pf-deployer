@@ -1,4 +1,3 @@
-from app.common.utils.rights import authorize
 from app.views.auth import register_auth_views
 from app.views.main import register_main_views
 
