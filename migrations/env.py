@@ -23,7 +23,7 @@ logger = logging.getLogger('alembic.env')
 # target_metadata = mymodel.Base.metadata
 config.set_main_option(
     'sqlalchemy.url',
-    str(current_app.extensions['migrate'].db.engine.url).replace('***', ''))  # 这里处理一下低版本的 账号密码
+    str(current_app.extensions['migrate'].db.engine.url).replace('%', '%%'))  # 这里处理一下低版本的 账号密码
 target_db = current_app.extensions['migrate'].db
 
 

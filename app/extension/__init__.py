@@ -8,6 +8,7 @@ from flask import Flask
 
 from app.extension.init_login import init_login_manager
 from app.extension.init_migrate import init_migrate
+from .init_email import init_email
 from .init_sqlalchemy import db, ma, init_databases
 
 
@@ -19,3 +20,6 @@ def init_plugs(app: Flask) -> None:
     init_login_manager(app)
     init_databases(app)
     init_migrate(app)
+
+    # 注册邮件
+    init_email(app)
