@@ -95,6 +95,10 @@ def get_captcha():
 @auth_bp.route('/logout', methods=['POST'])
 @login_required
 def logout():
+    """
+
+    :return:
+    """
     logout_user()
     session.pop('permissions')
     return success_api(msg="注销成功")

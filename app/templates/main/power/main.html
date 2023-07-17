@@ -6,7 +6,7 @@
 {% block content -%}
 <div class="layui-card">
     <div class="layui-card-body">
-        <form class="layui-form" action="">
+        <form class="layui-form">
             <div class="layui-form-item">
                 <label class="layui-form-label">权限名称</label>
                 <div class="layui-input-inline">
@@ -45,7 +45,7 @@
 </script>
 <script type="text/html" id="power-bar">
     {% if authorize("admin:role:edit") %}
-    <button class="pear-btn pear-btn-primary pear-btn-sm" lay-event="edit"><i
+    <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="edit"><i
             class="layui-icon layui-icon-edit"></i>
     </button>
     {% endif %}
@@ -68,7 +68,6 @@
     " |safe }}
 
 </script>
-
 <script type="text/html" id="power-enable">
     <input type="checkbox" name="enable" value="{{ " {{d.powerId}}" }}" lay-skin="switch" lay-text="启用|禁用"
     lay-filter="power-enable"  {{ "{{# if(d.enable==1){ }} checked {{# } }}" }}>
@@ -83,6 +82,8 @@
 <script>
     layui.use(['table', 'form', 'jquery', 'treetable'], function () {
         let table = layui.table
+        let $ = layui.jquery
+        let form = layui.form
         let treetable = layui.treetable
         let MODULE_PATH = '/admin/power/'
         window.render = function () {
@@ -121,6 +122,15 @@
                 content: MODULE_PATH + 'add'
               })
             }
+        window.edit = function (obj) {
+            layer.open({
+                type: 2,
+                title: '修改',
+                shade: 0.1,
+                area: ['800px', '500px'],
+                content: MODULE_PATH + 'edit/' + obj.data['powerId']
+              })
+        }
         render()
         table.on('toolbar(power-table)', function (obj) {
               if (obj.event === 'add') {
@@ -129,6 +139,40 @@
                 window.refresh()
               }
             })
+        table.on('tool(power-table)', function (obj) {
+          if (obj.event === 'remove') {
+            window.remove(obj)
+          } else if (obj.event === 'edit') {
+            window.edit(obj)
+          }
+        })
+        form.on('submit(power-query)', function (data) {
+              var keyword = data.field.powerName
+              var $tds = $('#power-table').next('.treeTable').find('.layui-table-body tbody tr td')
+              if (!keyword) {
+                $tds.css('background-color', 'transparent')
+                layer.msg('请输入关键字', { icon: 5 })
+                return false
+              }
+              var searchCount = 0
+              $tds.each(function () {
+                $(this).css('background-color', 'transparent')
+                if ($(this).text().indexOf(keyword) >= 0) {
+                  $(this).css('background-color', 'rgba(250,230,160,0.5)')
+                  if (searchCount === 0) {
+                    $('body,html').stop(true)
+                    $('body,html').animate({ scrollTop: $(this).offset().top - 150 }, 500)
+                  }
+                  searchCount++
+                }
+              })
+              if (searchCount === 0) {
+                layer.msg('没有匹配结果', { icon: 5 })
+              } else {
+                treetable.expandAll('#power-table')
+              }
+              return false
+        })
     })
 
 </script>
