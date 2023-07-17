@@ -14,6 +14,7 @@ class Config:
     TEMPLATE_FOLDER = 'app/templates'
     STATIC_FOLDER = 'app/static'
     SYSTEM_NAME = 'PF-DEV'
+    SQLALCHEMY_ECHO = True
 
     @staticmethod
     def init_app(app):
@@ -31,6 +32,7 @@ class DevelopmentConfig(Config):
         开发 musql
     """
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/crm?charset=utf8'
+
     SUPERADMIN = 'admin'
 
 

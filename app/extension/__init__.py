@@ -10,6 +10,7 @@ from app.extension.init_login import init_login_manager
 from app.extension.init_migrate import init_migrate
 from .init_email import init_email
 from .init_sqlalchemy import db, ma, init_databases
+from .init_template_directives import init_template_directives
 
 
 def init_plugs(app: Flask) -> None:
@@ -23,3 +24,4 @@ def init_plugs(app: Flask) -> None:
 
     # 注册邮件
     init_email(app)
+    init_template_directives(app)
